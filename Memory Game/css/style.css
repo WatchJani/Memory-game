@@ -7,14 +7,16 @@
   --card-with: 210px;
   --card-height: 210px;
   --paragraf-color: #171717;
+  --padding-menu: 100px
 }
 
 nav {
-  width: 100%;
+  width: calc(100% - (var(--padding-menu) * 2));
   background-color: white;
   border-bottom: 2px solid rgb(226, 226, 226);
   height: 70px;
   margin-bottom: 50px;
+  padding: 0 var(--padding-menu);
 }
 
 body {
