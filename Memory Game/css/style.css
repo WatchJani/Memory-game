@@ -75,3 +75,25 @@ ol {
 .card-container img:hover{
     background-color: rgb(245, 245, 245);
 }
+
+svg {
+  fill: #183153;
+  width: 20px;
+}
+
+.timer{
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  padding: 20px 25px;
+  background-color: #0CA678;
+  border-bottom: #171717 solid 5px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  font-weight: bold;
+  color: #183153;
+  font-size: 20px;
+}
