@@ -1,69 +1,77 @@
-*{
-    padding: 0;
-    margin: 0;
+* {
+  padding: 0;
+  margin: 0;
 }
 
 :root {
-    --card-with: 200px;
-    --card-height: 200px;
-    --paragraf-color: #171717;
-  }
-
-nav{
-    width: 100%;
-    background-color: white;
-    border-bottom: 2px solid rgb(226, 226, 226);
-    height: 70px;
-    margin-bottom: 50px;
+  --card-with: 210px;
+  --card-height: 210px;
+  --paragraf-color: #171717;
 }
 
-body{
-    background-color: #f5f5f5;
-    font-family: "Segoe UI";
+nav {
+  width: 100%;
+  background-color: white;
+  border-bottom: 2px solid rgb(226, 226, 226);
+  height: 70px;
+  margin-bottom: 50px;
 }
 
-
-
-.container{
-    width: min(100% - 32px, 1248px);
-    margin-inline: auto;
-   
+body {
+  background-color: #f5f5f5;
+  font-family: "Segoe UI";
 }
 
-section{
-    background-color: white;
-    border-radius: 7px;
-    border: 2px solid rgb(240, 240, 240);
-    margin-bottom: 50px;
+.container {
+  width: min(100% - 32px, 1248px);
+  margin-inline: auto;
 }
 
-h1{
-    font-weight: 900;
-    text-decoration: underline;
-    padding: 32px 64px;
-    font-size: 48px;
-    line-height: 60px;
-    color: var(--paragraf-color);
+section {
+  background-color: white;
+  border-radius: 7px;
+  border: 2px solid rgb(240, 240, 240);
+  margin-bottom: 50px;
 }
 
-p, ol{
-    color: var(--paragraf-color);
-    font-size: 20px;
-    line-height: 30px;
-    padding: 0 64px 20px 64px;
+h1 {
+  font-weight: 900;
+  text-decoration: underline;
+  padding: 32px 64px;
+  font-size: 48px;
+  line-height: 60px;
+  color: var(--paragraf-color);
 }
 
+p,
+ol {
+  color: var(--paragraf-color);
+  font-size: 20px;
+  line-height: 30px;
+  padding: 0 64px 20px 64px;
+}
 
 /* game page */
-.card-container{
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-.card{
-    width: var(--card-with);
-    height: var(--card-height);
-    background-color: aquamarine;
-    border-radius: 10px;
+.card-container img {
+  width: var(--card-with);
+  height: var(--card-height);
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid rgb(239, 239, 239);
+  -webkit-box-shadow: 10px 10px 4px -3px rgba(194,194,194,1);
+  -moz-box-shadow: 10px 10px 4px -3px rgba(194,194,194,1);
+  box-shadow: 10px 10px 4px -3px rgba(194,194,194,1);
+  cursor: pointer;
+  -webkit-user-drag: none;
+}
+
+.card-container img:hover{
+    background-color: rgb(245, 245, 245);
 }
