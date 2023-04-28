@@ -83,6 +83,7 @@ body {
 .container {
   width: min(100% - 32px, 1248px);
   margin-inline: auto;
+  margin-bottom: 50px;
 }
 
 section {
@@ -100,6 +101,7 @@ h1 {
   font-size: 48px;
   line-height: 60px;
   color: var(--paragraf-color);
+  animation: text 0.7s;
 }
 
 p,
@@ -108,6 +110,7 @@ ol {
   font-size: 20px;
   line-height: 30px;
   padding: 0 64px 20px 64px;
+  animation: text 1s;
 }
 
 /* game page */
@@ -154,4 +157,25 @@ svg {
   font-weight: bold;
   color: #183153;
   font-size: 20px;
+}
+
+.animate {
+  animation-name: flip;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  transform-style: preserve-3d;
+}
+
+@keyframes flip {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes text {
+    from {opacity: 0;}
+    to{opacity: 1;}
 }
