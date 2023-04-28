@@ -28,7 +28,7 @@ let card = {
 let isAnimationRunning = false
 
 const Read = (cardId, cardKey) => {
-    if (isAnimationRunning) {
+    if (isAnimationRunning || card.previousCard == cardId) {
         return;
     }
 
@@ -45,12 +45,14 @@ const Read = (cardId, cardKey) => {
         return
     }
 
+    isAnimationRunning = true
+
     if (card.previousCard % 10 == cardId % 10) { // the best 😎😎😎
         console.log("win")
         card.previousCard = null
         return
     }
-    isAnimationRunning = true
+    
     card.previousCard = null
 
     setTimeout(function () {
