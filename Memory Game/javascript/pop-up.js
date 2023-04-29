@@ -11,5 +11,6 @@ startButton.addEventListener("click", () => {
     popUp.style.display = "none"
     card.pair = 0
     card.moves = 0
+    card.isTimeStart = false
     Render()
 })

@@ -58,7 +58,8 @@ const Read = (cardId) => {
 
         //end game
         if (card.pair == card.numberOfCard / 2) {
-            card.time = minutes + ":" + seconds
+            card.time = (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") +
+                ":" + (seconds > 9 ? seconds : "0" + seconds);
             popUp.style.display = "block"
             SuperReader()
             resetTimer()
