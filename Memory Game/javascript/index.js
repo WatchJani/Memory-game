@@ -1,65 +1,78 @@
-//random array
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-}
-
-data = shuffleArray(data);
-
-//get element from html
-const slikeDiv = document.getElementById("img");
-
-//object array 
-const htmlString = data.map(obj => {
-    return `<img src="../../assets/background-card.webp" alt="Slika ${obj.id}" id="${obj.id}" onClick="Read(${obj.id}, ${obj.key})">`;
-}).join("");
-
-//print data from array
-slikeDiv.innerHTML = htmlString;
+Render()
 
 let card = {
     "thisClick": null,
-    "previousCard": null
+    "previousCard": null,
+    "isAnimationRunning": false,
+    "time": "",
+    "isTimeStart": false,
+    "moves": 0,
+    "numberOfCard": data.length,
+    "pair": 0
 }
 
-let isAnimationRunning = false
 
-const Read = (cardId, cardKey) => {
-    if (isAnimationRunning || card.previousCard == cardId) {
+const Read = (cardId) => {
+    //security
+    if (card.isAnimationRunning || card.previousCard == cardId || cardId == null) {
         return;
     }
 
+    //active timer
+    if (!card.isTimeStart) {
+        card.isTimeStart = true
+        startTimer()
+    }
+
+    //this card
     let thisImage = document.getElementById(cardId);
 
+    //count moves
+    card.moves++
+
+    //animation
     thisImage.classList.add('animate');
 
-
+    //previous card
     let previousImage = document.getElementById(card.previousCard)
-    thisImage.src = `../../assets/${cardKey}.webp`
+    //set a new card image
+    thisImage.src = `../../assets/${(cardId % (card.numberOfCard / 2)) + 1}.webp`
 
+    //is it a second flip
     if (card.previousCard == null) {
         card.previousCard = cardId
         return
     }
 
-    isAnimationRunning = true
+    //block code
+    card.isAnimationRunning = true
 
-    if (card.previousCard % 10 == cardId % 10) { // the best 😎😎😎
-        console.log("win")
+    //is it the same card
+    if (card.previousCard % (card.numberOfCard / 2) == cardId % (card.numberOfCard / 2)) {
+        card.pair++
         card.previousCard = null
+        card.isAnimationRunning = false
+
+        previousImage.id = null
+        thisImage.id = null
+
+        //end game
+        if (card.pair == card.numberOfCard / 2) {
+            card.time = minutes + ":" + seconds
+            popUp.style.display = "block"
+            SuperReader()
+            resetTimer()
+        }
         return
     }
-    
-    card.previousCard = null
 
+    //reset all property
+    card.previousCard = null
     setTimeout(function () {
         thisImage.classList.remove('animate');
         previousImage.classList.remove('animate');
         thisImage.src = `../../assets/background-card.webp`
         previousImage.src = `../../assets/background-card.webp`
-        isAnimationRunning = false
+        card.isAnimationRunning = false
     }, 1000);
 }

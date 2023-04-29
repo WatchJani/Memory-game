@@ -10,7 +10,10 @@
     <link rel="stylesheet" href="../../css/style.css">
     <script src="https://kit.fontawesome.com/e0fbbfa5dd.js" crossorigin="anonymous"></script>
     <script src="../../javascript/data.js" defer></script>
+    <script src="../../javascript/print.js" defer></script>
     <script src="../../javascript/index.js" defer></script>
+    <script src="../../javascript/timer.js" defer></script>
+    <script src="../../javascript/pop-up.js" defer></script>
 </head>
 
 <body>
@@ -28,12 +31,24 @@
 
 
     <!-- timer -->
-    <div class="timer"> 00:00
+    <div class="timer"> <span id="timer">00:00</span>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
             <path
                 d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
         </svg>
     </div>
+
+
+    <!-- POP-UP -->
+    <div class="pop-up" id="pop-up">
+        <div>
+            <h1>End Game</h1>
+            <p>time: <span id="your-time">0</span></p>
+            <p>moves: <span id="your-moves">0</span></p>
+            <button id="play">Play</button>
+        </div>
+    </div>
+
 </body>
 
 </html>
